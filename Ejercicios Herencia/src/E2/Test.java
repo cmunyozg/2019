@@ -14,7 +14,10 @@ public class Test {
 		
 		
 		System.out.println(credito1.pagoCredito(1000));
+
+		credito1.cargoFinMes();
 		System.out.println(debito1.toString());
+		
 	}
 }
 

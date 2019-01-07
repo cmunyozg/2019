@@ -9,13 +9,13 @@ public class Credito extends Tarjeta {
 	public Credito(Cuenta cuenta) {
 		super(cuenta);
 		limite = 1000;
-		interes = 1;
+		interes = 0.01f;
 	}
 
 	public Credito(Cuenta cuenta, float limite) {
 		super(cuenta);
 		this.limite = limite;
-		interes = 1;
+		interes = 0.01f;
 	}
 
 	public boolean pagoCredito(float cantidad) {
@@ -24,6 +24,12 @@ public class Credito extends Tarjeta {
 			return true;
 		} else pagoCuenta(cantidad);
 			return (pagoCuenta(cantidad)) ? true : false;
+	}
+	
+	public boolean cargoFinMes() {
+		float intereses = gastoAcumuladoMes*interes;
+		saldo -=(gastoAcumuladoMes+intereses);
+		return true;
 	}
 
 	public float getLimite() {
